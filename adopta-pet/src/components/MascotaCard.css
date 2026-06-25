@@ -1,0 +1,64 @@
+.mascota-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  margin: 16px;
+}
+
+.mascota-card:hover {
+  transform: scale(1.05);
+}
+
+.mascota-card__imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.mascota-card__contenido {
+  padding: 16px;
+}
+
+.mascota-card__nombre {
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+}
+
+.mascota-card__descripcion {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 16px;
+}
+
+.mascota-card__boton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.mascota-card__boton:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos diferenciados por especie */
+.mascota-card--perro {
+  border-color: #ffcc00;
+  background-color: #fff8e1;
+}
+
+.mascota-card--gato {
+  border-color: #ff99cc;
+  background-color: #fff0f5;
+}
+
+.mascota-card--ave {
+  border-color: #66ccff;
+  background-color: #e6f7ff;
+}

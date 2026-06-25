@@ -12,6 +12,7 @@ const App = () => {
       imagen: 'https://via.placeholder.com/300',
       descripcion: 'Un perro muy amigable y juguetón.',
       especie: 'Perro',
+      adopcionUrgente: true,
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ const App = () => {
       imagen: 'https://via.placeholder.com/300',
       descripcion: 'Un gato curioso y tranquilo.',
       especie: 'Gato',
+      adopcionUrgente: false,
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ const App = () => {
       imagen: 'https://via.placeholder.com/300',
       descripcion: 'Un ave alegre y colorida.',
       especie: 'Ave',
+      adopcionUrgente: true,
     },
   ];
 
@@ -38,6 +41,11 @@ const App = () => {
     ? mascotas.filter((mascota) => mascota.especie === filtroEspecie)
     : mascotas;
 
+  // Contar las mascotas con adopción urgente
+  const contadorUrgente = mascotasFiltradas.filter(
+    (mascota) => mascota.adopcionUrgente
+  ).length;
+
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>Adopta una Mascota</h1>
@@ -46,6 +54,11 @@ const App = () => {
         filtroActual={filtroEspecie}
         onFiltrar={setFiltroEspecie}
       />
+      <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#ff0000' }}>
+        {contadorUrgente > 0
+          ? `Hay ${contadorUrgente} mascota(s) que necesitan adopción urgente.`
+          : 'No hay mascotas con adopción urgente.'}
+      </p>
       {mascotasFiltradas.length > 0 ? (
         <ListaMascotas mascotas={mascotasFiltradas} onAdoptar={handleAdoptar} />
       ) : (

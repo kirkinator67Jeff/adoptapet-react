@@ -1,36 +1,37 @@
 import React from 'react';
-import MascotaCard from './components/MascotaCard';
+import PropTypes from 'prop-types';
+import MascotaCard from './MascotaCard';
 
-const App = () => {
-  const handleAdoptar = (nombre) => {
-    alert(`¡Gracias por adoptar a ${nombre}!`);
-  };
-
+const ListaMascotas = ({ mascotas, onAdoptar }) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-      <MascotaCard
-        nombre="Firulais"
-        imagen="https://via.placeholder.com/300"
-        descripcion="Un perro muy amigable y juguetón."
-        especie="Perro"
-        onAdoptar={() => handleAdoptar('Firulais')}
-      />
-      <MascotaCard
-        nombre="Michi"
-        imagen="https://via.placeholder.com/300"
-        descripcion="Un gato curioso y tranquilo."
-        especie="Gato"
-        onAdoptar={() => handleAdoptar('Michi')}
-      />
-      <MascotaCard
-        nombre="Piolín"
-        imagen="https://via.placeholder.com/300"
-        descripcion="Un ave alegre y colorida."
-        especie="Ave"
-        onAdoptar={() => handleAdoptar('Piolín')}
-      />
+      {mascotas.map((mascota) => (
+        <MascotaCard
+          key={mascota.id}
+          nombre={mascota.nombre}
+          imagen={mascota.imagen}
+          descripcion={mascota.descripcion}
+          especie={mascota.especie}
+          adopcionUrgente={mascota.adopcionUrgente}
+          onAdoptar={() => onAdoptar(mascota.nombre)}
+        />
+      ))}
     </div>
   );
 };
 
-export default App;
+ListaMascotas.propTypes = {
+  mascotas: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      nombre: PropTypes.string.isRequired,
+      imagen: PropTypes.string.isRequired,
+      descripcion: PropTypes.string.isRequired,
+      especie: PropTypes.string.isRequired,
+      adopcionUrgente: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  onAdoptar: PropTypes.func.isRequired,
+};
+
+export default ListaMascotas;

@@ -1,2 +1,8 @@
 Prompt 1: desarrollemos el componente MascotaCard
-Resultado: me dio los props necesarios para empezar la aplicacion
+Resultado: me dio el codigo necesario para empezar la aplicacion
+
+
+Prompt 2: para el componente de mascotas card, necesito props y una info ordenada
+Resultado: me dio props para diferenciar las mascotas una de otras y las ordenó
+
+Prompt 3: 

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ListaMascotas from './components/Lista Mascotas';
+import FiltroEspecie from './components/FiltroEspecie';
 
 const App = () => {
+  const [filtroEspecie, setFiltroEspecie] = useState('');
+
   const mascotas = [
     {
       id: 1,
@@ -30,10 +33,26 @@ const App = () => {
     alert(`¡Gracias por adoptar a ${nombre}!`);
   };
 
+  // Filtrar las mascotas según la especie seleccionada
+  const mascotasFiltradas = filtroEspecie
+    ? mascotas.filter((mascota) => mascota.especie === filtroEspecie)
+    : mascotas;
+
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>Adopta una Mascota</h1>
-      <ListaMascotas mascotas={mascotas} onAdoptar={handleAdoptar} />
+      <FiltroEspecie
+        especies={['Perro', 'Gato', 'Ave']}
+        filtroActual={filtroEspecie}
+        onFiltrar={setFiltroEspecie}
+      />
+      {mascotasFiltradas.length > 0 ? (
+        <ListaMascotas mascotas={mascotasFiltradas} onAdoptar={handleAdoptar} />
+      ) : (
+        <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#555' }}>
+          No hay mascotas que coincidan con el filtro seleccionado.
+        </p>
+      )}
     </div>
   );
 };

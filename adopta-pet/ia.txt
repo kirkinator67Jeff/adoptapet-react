@@ -1,8 +1,15 @@
 Prompt 1: desarrollemos el componente MascotaCard
 Resultado: me dio el codigo necesario para empezar la aplicacion
+Utilidad: util 
 
 
 Prompt 2: para el componente de mascotas card, necesito props y una info ordenada
 Resultado: me dio props para diferenciar las mascotas una de otras y las ordenó
+Utilidad: ni util ni muy util
 
-Prompt 3: 
+Prompt 3: dame el array por props para renderizarlos en app.jsx y que uses el id de cada mascota 
+Resultado: me dio el codigo y el array para poder hacer funcionar las keys 
+Utilidad: muy util
+
+Prompt 4: crea un selector/boton para el filtrado, modifica app.jsx para que use useState y aplica ambos filtros para el array
+Resultado: me hizo el filtro y el selector para las mascotas

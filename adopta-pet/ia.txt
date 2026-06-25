@@ -1,0 +1,2 @@
+Prompt 1: desarrollemos el componente MascotaCard
+Resultado: me dio los props necesarios para empezar la aplicacion
